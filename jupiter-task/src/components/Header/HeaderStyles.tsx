@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Flex from "../UI/Flex";
 
 export const HeaderBackground = styled.div`
   background-color: #28293E;
@@ -6,8 +7,14 @@ export const HeaderBackground = styled.div`
 export const HeaderContainer = styled.header`
   padding: 16px 0;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 1040px) {
+    justify-content: center;
+    div {
+      flex-grow: initial;
+    }
+  }
 `
 export const HeaderTitle = styled.header`
   font-size: 24px;
@@ -17,6 +24,10 @@ export const HeaderTitle = styled.header`
 
 export const NavBar = styled.nav`
   flex-grow: 5;
+  
+  @media (max-width: 1040px) {
+    display: none;
+  }
 `
 
 export const NavBarList = styled.ul`
@@ -27,4 +38,10 @@ export const NavBarList = styled.ul`
 `
 export const NavBarItem = styled.li`
   list-style-type: none;
+`
+
+export const ButtonWrapper = styled(Flex)`
+  @media (max-width: 1040px) {
+    display: none;
+  }
 `

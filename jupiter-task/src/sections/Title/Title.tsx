@@ -5,10 +5,10 @@ const Title = () => {
     return (
         <TitleSection>
             <TitleText>
-                Title
+                Portfolio
             </TitleText>
             <SubTitleText>
-                SubTitle
+                Agency provides a full service range including technical skills, design, business understanding.
             </SubTitleText>
         </TitleSection>
     );

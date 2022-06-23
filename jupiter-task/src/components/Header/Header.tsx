@@ -1,5 +1,13 @@
 import React, {FC} from 'react';
-import {HeaderContainer, NavBarItem, NavBarList, HeaderTitle, HeaderBackground, NavBar} from "./HeaderStyles";
+import {
+    HeaderContainer,
+    NavBarItem,
+    NavBarList,
+    HeaderTitle,
+    HeaderBackground,
+    NavBar,
+    ButtonWrapper
+} from "./HeaderStyles";
 import {Container} from "../../GlobalStyles";
 import logo from '../../assets/img/CompositeLayer.svg'
 import Flex from "../UI/Flex";
@@ -22,17 +30,17 @@ const Header: FC = () => {
                     <NavBar>
                         <NavBarList>
                             {navBarItems.map(item =>
-                                <NavBarItem>
+                                <NavBarItem key={item}>
                                     {item}
                                 </NavBarItem>)}
                         </NavBarList>
                     </NavBar>
-                    <Flex
+                    <ButtonWrapper
                         grow={1}
                         justify='flex-end'
                     >
                         <Button>Contact</Button>
-                    </Flex>
+                    </ButtonWrapper>
                 </HeaderContainer>
             </Container>
         </HeaderBackground>
