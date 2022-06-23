@@ -36,6 +36,9 @@ export const GalleryItemCard = styled.li<GalleryItemCardProps>`
   border-radius: 5px;
   outline: ${props => props.active ? "7px solid #16cd53" : 'none'};
   background: #000;
+  @media (max-width: 1040px) {
+    outline: none;
+  }
 
   img {
     position: absolute;

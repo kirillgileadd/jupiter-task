@@ -1,6 +1,8 @@
 import React, {FC, useEffect, useRef, useState} from 'react';
+
 import {GalleryInner, GalleryList, GallerySection} from "./GalleryStyles";
-import {Container} from "../../GlobalStyles";
+import {Container} from "../../styles/GlobalStyles";
+
 import Categories from "../../components/Caregories/Categories";
 import Button from "../../components/UI/Button";
 import GalleryItem from "./GalleryItem";
@@ -63,10 +65,15 @@ const Gallery: FC = () => {
     //     return () => document.removeEventListener('click', onChangeActiveCard)
     // }, [])
 
+    if(error) {
+        return (
+            <h1>{error}</h1>
+        )
+    }
 
     return (
         <GallerySection>
-            <Container>
+            <Container width={"1440px"}>
                 <GalleryInner>
                     <Categories
                         categories={categories}

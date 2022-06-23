@@ -15,8 +15,13 @@ body {
   background-color: #FDF0E9;
 }
 `
-export const Container = styled.div`
-  max-width: 1200px;
+
+interface ContainerProps {
+    width?: string
+}
+
+export const Container = styled.div<ContainerProps>`
+  max-width: ${props => props.width || '1200px'};
   margin: 0 auto;
   padding: 0 15px;
   width: 100%;

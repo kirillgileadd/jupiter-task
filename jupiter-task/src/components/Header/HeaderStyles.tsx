@@ -37,6 +37,7 @@ export const NavBarList = styled.ul`
 
 `
 export const NavBarItem = styled.li`
+  cursor: pointer;
   list-style-type: none;
 `
 

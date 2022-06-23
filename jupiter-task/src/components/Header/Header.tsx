@@ -8,7 +8,7 @@ import {
     NavBar,
     ButtonWrapper
 } from "./HeaderStyles";
-import {Container} from "../../GlobalStyles";
+import {Container} from "../../styles/GlobalStyles";
 import logo from '../../assets/img/CompositeLayer.svg'
 import Flex from "../UI/Flex";
 import Button from "../UI/Button";

@@ -28,7 +28,6 @@ const GalleryItem: FC<GalleryItemProps> =
 
         useEffect(() => {
             if(isActive) {
-                console.log('done');
                 onDelete(id)
             }
         }, [keypress])

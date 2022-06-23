@@ -8,9 +8,10 @@ interface ButtonProps {
 }
 
 const StyledButton = styled.button<ButtonProps>`
-  padding: 18px 39px;
+  padding: 18px 29px;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
   border: ${props => props.primary ? "none" : "1px solid rgba(255, 255, 255, 0.3)"} ;
   background-color: ${props => props.primary ? "#fff" : "transparent"};
   color: ${props => props.primary ? "#9F8D83" : "#fff"};
