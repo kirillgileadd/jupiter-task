@@ -29,3 +29,16 @@ export const loadMoreCards = createAsyncThunk(
         }
     }
 )
+export const deleteCard = createAsyncThunk(
+    'deleteCard/fetchAll',
+    async (id: number, thunkAPI) => {
+        try {
+            const response = await CardService.deleteCard(id)
+            if(response.status === 200) {
+                return id
+            }
+        } catch (e) {
+            return thunkAPI.rejectWithValue('Fetching Cards error')
+        }
+    }
+)

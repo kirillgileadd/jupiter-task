@@ -13,7 +13,7 @@ const initialState: CategorySate = {
     categories: [],
     loading: false,
     error: '',
-    activeCategory: '2'
+    activeCategory: ''
 }
 
 export const categorySlice = createSlice({

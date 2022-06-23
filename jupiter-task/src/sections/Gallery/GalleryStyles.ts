@@ -67,7 +67,11 @@ export const GalleryItemCategory = styled.div`
 `
 
 export const GalleryItemTitle = styled.p`
+  width: 100%;
   font-size: 40px;
   font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 
 `

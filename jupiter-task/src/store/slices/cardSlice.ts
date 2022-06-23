@@ -1,6 +1,6 @@
 import {ICard} from "../../models/ICard";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {fetchCards, loadMoreCards} from "../action-creators/card";
+import {deleteCard, fetchCards, loadMoreCards} from "../action-creators/card";
 
 export interface CardSate {
     cards: ICard[];
@@ -34,7 +34,7 @@ export const cardSlice = createSlice({
         },
         setTotalPages: (state, action: PayloadAction<string>) => {
             state.totalPages = action.payload
-        }
+        },
     },
     extraReducers: {
         [fetchCards.pending.type]: (state) => {
@@ -55,6 +55,9 @@ export const cardSlice = createSlice({
             state.cards = [...state.cards, ...action.payload]
             state.error = ''
         },
+        [deleteCard.fulfilled.type]: (state, action: PayloadAction<number>) => {
+            state.cards = state.cards.filter(card => card.id !== action.payload)
+        }
     }
 })
 

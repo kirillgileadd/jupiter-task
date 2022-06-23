@@ -6,7 +6,7 @@ import Button from "../../components/UI/Button";
 import GalleryItem from "./GalleryItem";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {setPage} from "../../store/slices/cardSlice";
-import {fetchCards, loadMoreCards} from "../../store/action-creators/card";
+import {deleteCard, fetchCards, loadMoreCards} from "../../store/action-creators/card";
 import {fetchCategory} from "../../store/action-creators/cartgory";
 import {setActiveCategory} from "../../store/slices/categorySlice";
 
@@ -46,6 +46,9 @@ const Gallery: FC = () => {
             alert("There is all cards")
         }
     }
+    const onDeleteActiveCard = (id: number) => {
+        dispatch(deleteCard(id))
+    }
 
     // const onChangeActiveCard = (e: any) => {
     //     console.log(e.path)
@@ -74,7 +77,9 @@ const Gallery: FC = () => {
                         {cards.map(card =>
                             <GalleryItem
                                 key={card.id}
-                                active={activeCard === card.id}
+                                onDelete={onDeleteActiveCard}
+                                onChangeActiveCategory={onChangeActiveCategory}
+                                activeCard={activeCard}
                                 onSelect={setActiveCard}
                                 {...card}
                             />
