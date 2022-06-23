@@ -5,7 +5,7 @@ interface SelectProps {
     options: Array<any>;
     defaultValue: string;
     value?: string
-    onChange: Dispatch<SetStateAction<string>>;
+    onChange: (catygory: string) => void
 }
 
 const StyledSelect = styled.select`

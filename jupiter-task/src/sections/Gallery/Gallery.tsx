@@ -1,52 +1,68 @@
-import React, {FC, useEffect, useRef, useState} from 'react';
-import {GallerySection, GalleryList, GalleryInner} from "./GalleryStyles";
+import React, {FC, useEffect, useState} from 'react';
+import {GalleryInner, GalleryList, GallerySection} from "./GalleryStyles";
 import {Container} from "../../GlobalStyles";
 import Categories from "../../components/Caregories/Categories";
 import Button from "../../components/UI/Button";
-import {ICard} from "../../models/ICard";
-import axios from "axios";
 import GalleryItem from "./GalleryItem";
+import {useAppDispatch, useAppSelector} from "../../hooks/redux";
+import {setPage} from "../../store/slices/cardSlice";
+import {fetchCards} from "../../store/action-creators/card";
+import {fetchCategory} from "../../store/action-creators/cartgory";
+import {setActiveCategory} from "../../store/slices/categorySlice";
 
 const Gallery: FC = () => {
-    const [cards, setCards] = useState<ICard[]>([])
-    const [page, setPage] = useState<number>(1)
+    const dispatch = useAppDispatch()
+    const {cards, totalPages, loading, page ,error} = useAppSelector(state => state.cards)
+    const {categories, activeCategory} = useAppSelector(state => state.categories)
     const [activeCard, setActiveCard] = useState<number | null>(null)
-    const cardRef = useRef()
-    console.log(cardRef);
 
     useEffect(() => {
-        (async function () {
-            const response = await axios.get<ICard[]>(`http://localhost:3001/cards?_expand=category&_limit=9&_page=${page}`)
-            setCards(prev => [...prev, ...response.data])
-        }())
-    }, [page])
+        const params = {page, activeCategory}
+        dispatch(fetchCards(params))
+    }, [page, activeCategory])
 
-    const onChangeActiveCard = (e: any) => {
-        console.log(e.path)
-        console.log(cardRef)
-        if(!e.path.includes(cardRef.current)) {
-            setActiveCard(null)
+    useEffect(() => {
+        dispatch(fetchCategory())
+    }, [])
+
+    const onChangeActiveCategory = (category: string) => {
+        dispatch(setActiveCategory(category))
+    }
+
+    const loadMoreCards = () => {
+        if(page < Number(totalPages)) {
+            dispatch(setPage())
+        } else {
+            alert("There is all cards")
         }
     }
 
-    useEffect(() => {
-        document.addEventListener('click', onChangeActiveCard)
-        return () => document.removeEventListener('click', onChangeActiveCard)
-    }, [])
+    // const onChangeActiveCard = (e: any) => {
+    //     console.log(e.path)
+    //     console.log(cardRef)
+    //     if(!e.path.includes(cardRef.current)) {
+    //         setActiveCard(null)
+    //     }
+    // }
+    //
+    // useEffect(() => {
+    //     document.addEventListener('click', onChangeActiveCard)
+    //     return () => document.removeEventListener('click', onChangeActiveCard)
+    // }, [])
 
-    const loadMoreCards = () => {
-        setPage(prev => prev + 1)
-    }
 
     return (
         <GallerySection>
             <Container>
                 <GalleryInner>
-                    <Categories/>
+                    <Categories
+                        categories={categories}
+                        onChangeActiveCategory={onChangeActiveCategory}
+                        activeCategory={activeCategory}
+                    />
                     <GalleryList>
                         {cards.map(card =>
                             <GalleryItem
-                                ref={cardRef}
                                 key={card.id}
                                 active={activeCard === card.id}
                                 onSelect={setActiveCard}

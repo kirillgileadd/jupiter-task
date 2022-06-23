@@ -1,6 +1,7 @@
 import React, {FC, useState} from 'react';
 import {CategoryList, CategoryItem} from './CategoriesStyles'
 import Select from "../UI/Select";
+import {ICategory} from "../../models/ICategory";
 
 const categories = [
     {
@@ -21,13 +22,13 @@ const categories = [
     }
 ]
 
-const Categories: FC = () => {
-    const [activeCategory, setActiveCategory] = useState<string>('')
+interface CategoriesProps  {
+    categories: ICategory[]
+    onChangeActiveCategory: (category: string) => void;
+    activeCategory: string;
+}
 
-    const onChangeActiveCategory = (value: string) => {
-        setActiveCategory(value)
-    }
-
+const Categories: FC<CategoriesProps> = ({categories, onChangeActiveCategory, activeCategory}) => {
     return (
         <>
             <CategoryList>
@@ -46,7 +47,7 @@ const Categories: FC = () => {
                     </CategoryItem>
                 )}
             </CategoryList>
-            <Select options={categories} defaultValue={"Show All"} value={activeCategory} onChange={setActiveCategory}/>
+            <Select options={categories} defaultValue={"Show All"} value={activeCategory} onChange={onChangeActiveCategory}/>
         </>
     );
 };

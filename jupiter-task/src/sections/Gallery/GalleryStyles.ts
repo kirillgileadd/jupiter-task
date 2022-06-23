@@ -24,10 +24,10 @@ export const GalleryList = styled.ul`
 
 interface GalleryItemCardProps {
     active: boolean;
-    ref: ((instance: HTMLLIElement | null) => void) & MutableRefObject<undefined>;
 }
 
 export const GalleryItemCard = styled.li<GalleryItemCardProps>`
+  cursor: pointer;
   padding: 56px 48px;
   position: relative;
   list-style-type: none;
