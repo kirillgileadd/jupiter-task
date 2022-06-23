@@ -1,0 +1,130 @@
+{
+  "cards": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "img": "https://html5css.ru/bootstrap4/img_avatar3.png",
+      "categoryId": 1
+    },
+    {
+      "title": "HandP",
+      "img": "https://html5css.ru/bootstrap4/img_avatar3.png",
+      "categoryId": 2,
+      "id": 2
+    },
+    {
+      "title": "Title",
+      "img": "https://html5css.ru/bootstrap4/img_avatar3.png",
+      "categoryId": 2,
+      "id": 3
+    },
+    {
+      "title": "Design",
+      "img": "https://html5css.ru/bootstrap4/img_avatar3.png",
+      "categoryId": 2,
+      "id": 4
+    },
+    {
+      "title": "Jupiter",
+      "img": "https://html5css.ru/bootstrap4/img_avatar3.png",
+      "categoryId": 3,
+      "id": 5
+    },
+    {
+      "title": "Task",
+      "img": "https://html5css.ru/bootstrap4/img_avatar3.png",
+      "categoryId": 3,
+      "id": 6
+    },
+    {
+      "title": "Task2",
+      "img": "https://html5css.ru/bootstrap4/img_avatar3.png",
+      "categoryId": 2,
+      "id": 7
+    },
+    {
+      "title": "Task3",
+      "img": "https://html5css.ru/bootstrap4/img_avatar3.png",
+      "categoryId": 4,
+      "id": 8
+    },
+    {
+      "title": "Task4",
+      "img": "https://html5css.ru/bootstrap4/img_avatar3.png",
+      "categoryId": 4,
+      "id": 9
+    },
+    {
+      "title": "New Task",
+      "img": "https://html5css.ru/bootstrap4/img_avatar3.png",
+      "categoryId": 1,
+      "id": 10
+    },
+    {
+      "title": "New Task",
+      "img": "https://html5css.ru/bootstrap4/img_avatar3.png",
+      "categoryId": 4,
+      "id": 11
+    },
+    {
+      "title": "New Task2",
+      "img": "https://html5css.ru/bootstrap4/img_avatar3.png",
+      "categoryId": 4,
+      "id": 12
+    },
+    {
+      "title": "Card2",
+      "img": "https://html5css.ru/bootstrap4/img_avatar3.png",
+      "categoryId": 2,
+      "id": 13
+    },
+    {
+      "title": "Card4",
+      "img": "https://html5css.ru/bootstrap4/img_avatar3.png",
+      "categoryId": 2,
+      "id": 14
+    },
+    {
+      "title": "Card5",
+      "img": "https://html5css.ru/bootstrap4/img_avatar3.png",
+      "categoryId": 2,
+      "id": 15
+    },
+    {
+      "title": "Card7",
+      "img": "https://html5css.ru/bootstrap4/img_avatar3.png",
+      "categoryId": 2,
+      "id": 16
+    },
+    {
+      "title": "Card8",
+      "img": "https://html5css.ru/bootstrap4/img_avatar3.png",
+      "categoryId": 3,
+      "id": 17
+    },
+    {
+      "title": "Card9",
+      "img": "https://html5css.ru/bootstrap4/img_avatar3.png",
+      "categoryId": 3,
+      "id": 18
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Design"
+    },
+    {
+      "id": 2,
+      "name": "Branding"
+    },
+    {
+      "id": 3,
+      "name": "Illustration"
+    },
+    {
+      "id": 4,
+      "name": "Motion"
+    }
+  ]
+}
