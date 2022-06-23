@@ -3,7 +3,7 @@ import {$api} from "./index";
 import {ICard} from "../models/ICard";
 
 export default class CardService {
-    static async fetchCards(limit: number, page: number, activeCategory: string): Promise<AxiosResponse<ICard[]>> {
+    static async fetchCards(limit = 9, page: number, activeCategory: string): Promise<AxiosResponse<ICard[]>> {
         return $api.get<ICard[]>('/cards', {
            params: {
                _expand: 'category',

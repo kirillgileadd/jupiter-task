@@ -1,12 +1,13 @@
 import {ICard} from "../../models/ICard";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {fetchCards} from "../action-creators/card";
+import {fetchCards, loadMoreCards} from "../action-creators/card";
 
 export interface CardSate {
     cards: ICard[];
     loading: boolean;
     error: string;
     page: number;
+    limit: number;
     totalPages: string | null;
 }
 
@@ -15,6 +16,7 @@ const initialState: CardSate = {
     loading: false,
     error: '',
     page: 1,
+    limit: 9,
     totalPages: null
 }
 
@@ -47,6 +49,11 @@ export const cardSlice = createSlice({
         },
         [fetchCards.rejected.type]: (state, action: PayloadAction<string>) => {
             state.error = action.payload
+        },
+        [loadMoreCards.fulfilled.type]: (state, action: PayloadAction<ICard[]>) => {
+            state.loading = false
+            state.cards = [...state.cards, ...action.payload]
+            state.error = ''
         },
     }
 })
